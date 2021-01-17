@@ -57,9 +57,6 @@
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
-        <Reference Include="Uconomy, Version=1.0.4.1, Culture=neutral, PublicKeyToken=null">
-          <HintPath>..\libs\Uconomy.dll</HintPath>
-        </Reference>
         <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
           <HintPath>..\libs\UnityEngine.dll</HintPath>
         </Reference>
@@ -93,12 +90,15 @@
         <Compile Include="Commands\Warps\RenameWarp.cs" />
         <Compile Include="Commands\Warps\Warp.cs" />
         <Compile Include="Commands\Warps\Warps.cs" />
+        <Compile Include="Database\WarpsDatabase.cs" />
+        <Compile Include="DataStorage.cs" />
         <Compile Include="Models\AutoBroadcast.cs" />
         <Compile Include="Models\TPARequest.cs" />
         <Compile Include="Models\Warp.cs" />
         <Compile Include="PSRMEssentials.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="PSRMEssentialsConfiguration.cs" />
+        <Compile Include="Services\WarpsService.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

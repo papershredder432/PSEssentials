@@ -1,10 +1,10 @@
-﻿using UnityEngine;
-
-namespace PSRMEssentials.Models
+﻿namespace PSRMEssentials.Models
 {
     public class Warp
     {
         public string WarpName { get; set; }
-        public Vector3 WarpPos { get; set; }
+        public float PositionX { get; set; } 
+        public float PositionY { get; set; } 
+        public float PositionZ { get; set; }
     }
 }

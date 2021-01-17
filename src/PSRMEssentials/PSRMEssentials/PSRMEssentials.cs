@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Elib;
+using PSRMEssentials.Database;
+using PSRMEssentials.Services;
 using Rocket.API.Collections;
 using Rocket.Core.Plugins;
 using SDG.Unturned;
@@ -11,6 +13,10 @@ namespace PSRMEssentials
     {
         public static PSRMEssentials Instance { get; set; }
         public Loads Loader = new Loads();
+        
+        public WarpsDatabase WarpsDatabase { get; private set; }
+        public WarpsService WarpsService { get; private set; }
+        
 
         protected override void Load()
         {
@@ -18,6 +24,10 @@ namespace PSRMEssentials
             Loader.Loaded(Name, Assembly.GetName().Version);
 
             StartCoroutine(Broadcast());
+            
+            WarpsDatabase = new WarpsDatabase();
+            WarpsDatabase.Reload();
+            WarpsService = gameObject.AddComponent<WarpsService>();
         }
 
         protected override void Unload()
@@ -26,6 +36,8 @@ namespace PSRMEssentials
             Loader.Unloaded(Name, Assembly.GetName().Version);
             
             StopCoroutine(Broadcast());
+            
+            Destroy(WarpsService);
         }
 
         public override TranslationList DefaultTranslations => new TranslationList()
